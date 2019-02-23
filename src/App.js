@@ -1,28 +1,33 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
-}
+import StateExample from './examples/StateExample';
+import EffectsExample from './examples/EffectsExample';
+import EffectsExampleTwo from './examples/EffectsExampleTwo';
+import EffectsMediaExample from './examples/EffectsMediaExample';
+import CustomHookExample from './examples/customHook/SearchContainer';
+import ContextExample from './examples/context/UserContainer';
+
+const App = () => {
+  const Example =
+    //
+    StateExample;
+  // EffectsExample;
+  // EffectsExampleTwo;
+  // EffectsMediaExample;
+  // CustomHookExample;
+  // ContextExample;
+
+  return (
+    <div className="App">
+      <h1>
+        <i className="nes-bulbasaur" />
+        Hooooooks
+        <i className="nes-charmander" />
+      </h1>
+      <Example />
+    </div>
+  );
+};
 
 export default App;
