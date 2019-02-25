@@ -1,32 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import searchGithub from './searchGithub';
 
-const useGitHubSearch = search => {
+const GithubSearch = ({ search }) => {
   const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
-    setLoading(true);
-    searchGithub(search)
-      .then(response => {
-        setLoading(false);
-        setData(response);
-      })
-      .catch(error => {
-        setLoading(false);
-        setError(error);
-      });
+    searchGithub(search).then(resp => setData(resp));
   }, [search]);
-
-  return { data, error, loading };
-};
-
-const GithubSearch = ({ search }) => {
-  const { data, error, loading } = useGitHubSearch(search);
-
-  if (loading) return 'Loading...';
-  if (error) return error;
 
   return (
     <ul className="nes-list is-disc">

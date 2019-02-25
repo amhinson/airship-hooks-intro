@@ -2,9 +2,9 @@ import React, { useContext } from 'react';
 import { UserContext } from './UserContext';
 
 const Header = () => {
-  const name = useContext(UserContext);
+  const { state } = useContext(UserContext);
 
-  return <p>{name || 'No User'}</p>;
+  return <p>{state.loading ? 'Loading...' : state.name || 'No User'}</p>;
 };
 
 export default Header;

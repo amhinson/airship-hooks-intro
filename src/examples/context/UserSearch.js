@@ -3,35 +3,16 @@ import { UserContext } from './UserContext';
 import userAPI from './userAPI';
 
 const UserSearch = () => {
-  const { dispatch } = useContext(UserContext);
-  const [name, setName] = useState('');
-
-  const setUser = () => dispatch({ type: 'setName', payload: name });
-  const clearUser = () => dispatch({ type: 'clear' });
-  const getUser = async () => {
-    try {
-      dispatch({ type: 'toggleLoading' });
-      const user = await userAPI();
-      dispatch({ type: 'setName', payload: user });
-    } catch (e) {
-      dispatch({ type: 'toggleLoading' });
-    }
-  };
-
-  const onChange = e => {
-    setName(e.target.value);
-  };
-
   return (
     <div>
-      <input className="nes-input" value={name} onChange={onChange} />
-      <button className="nes-btn is-primary" onClick={setUser}>
+      <input className="nes-input" value={null} onChange={() => {}} />
+      <button className="nes-btn is-primary" onClick={() => {}}>
         Set User
       </button>
-      <button className="nes-btn is-error" onClick={clearUser}>
+      <button className="nes-btn is-error" onClick={() => {}}>
         Clear
       </button>
-      <button className="nes-btn" onClick={getUser}>
+      <button className="nes-btn" onClick={() => {}}>
         Get User
       </button>
     </div>

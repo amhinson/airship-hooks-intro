@@ -23,6 +23,7 @@ export default class UseEffectDemo extends Component {
         </button>
         <br />
         <UseEffectComponent project={project} />
+        {/* <UseEffectFunction project={project} /> */}
       </div>
     );
   }
@@ -67,4 +68,30 @@ class UseEffectComponent extends Component {
       </div>
     );
   }
+}
+
+function UseEffectFunction(props) {
+  const { project } = props;
+  const [timeOnProject, setTimeOnProject] = useState(0);
+
+  useEffect(() => {
+    MyAPI.subscribe(time => {
+      setTimeOnProject(time);
+    });
+
+    return () => {
+      MyAPI.unsubscribe();
+      setTimeOnProject(0);
+    };
+  }, [project]);
+
+  return (
+    <div>
+      <h1>Project: {project}</h1>
+      <h2>
+        Time on project: <br />
+        {timeOnProject}
+      </h2>
+    </div>
+  );
 }

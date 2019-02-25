@@ -11,12 +11,12 @@ import ContextExample from './examples/context/UserContainer';
 const App = () => {
   const Example =
     //
-    StateExample;
-  // EffectsExample;
-  // EffectsExampleTwo;
-  // EffectsMediaExample;
-  // CustomHookExample;
-  // ContextExample;
+    // StateExample;
+    // EffectsExample;
+    // EffectsExampleTwo;
+    // EffectsMediaExample;
+    // CustomHookExample;
+    ContextExample;
 
   return (
     <div className="App">
